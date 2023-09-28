@@ -1,35 +1,14 @@
-<!-- Initialize HTML on the site -->
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width,
-        initial-scale=1.0">
-        <title>PHP Chat Project - Login</title>
-        <link rel="stylesheet" href="style.css">
-        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    </head>
-<body>
-    <div class="wrapper">
-        <form action="">
-            <h1>Login</h1>
-            <div class="input-box">
-                <input type="text" placeholder="Username" required>
-                <i class='bx bx-user-circle'></i>
-            </div>
-            <div class="input-box">
-                <input type="password" placeholder="Password" required>
-            </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox">Remember Me</label>
-                <a href="#">Forgot password?</a>
-            </div>
-            <button type="submit" class="btn">Login</button>
-            <div class="register-link">
-                <p>Don't have an account? <a href="#">Register</a></p>
-            </div>
-        </form>
-    </div>
-</body>
-</html>
+<?php
+require '../vendor/autoload.php';
+
+$servername = "localhost";
+$username = "root";
+$password = "root123";
+$schema = "php-project";
+
+$conn = new PDO("mysql:host=$servername;dbname=$schema", $username, $password);
+$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+Flight::set("connection", $conn);
+
+Flight::start();
+?>
